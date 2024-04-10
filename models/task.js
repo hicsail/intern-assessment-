@@ -1,27 +1,21 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../database");
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../database');
 
-class Task extends Model {}
-
-Task.init(
-  {
-    // Define attributes
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+const Task = sequelize.define('Task', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true
   },
-  {
-    sequelize, // Pass the connection instance
-    modelName: "Task", // Name your model
-    timestamps: true, // Enable automatic creation of createdAt & updatedAt fields
-    tableName: "Tasks", // Explicitly define the table name
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false
   },
-);
+  completed: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
+  }
+});
 
 module.exports = Task;

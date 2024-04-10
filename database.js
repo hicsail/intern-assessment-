@@ -1,9 +1,9 @@
-const { Sequelize } = require("sequelize");
-require("dotenv").config();
+const { Sequelize } = require('sequelize');
+require('dotenv').config();
 
 const sequelize = new Sequelize({
-  dialect: "sqlite",
-  storage: process.env.DB_FILE_PATH, // Ensure your .env file defines DB_FILE_PATH
+  dialect: 'sqlite',
+  storage: 'database.sqlite'
 });
 
 module.exports = sequelize;
