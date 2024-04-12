@@ -16,9 +16,28 @@ const ToDoList = () => {
     console.log("updating task", task);
   };
 
-  // delete task
   const deleteTask = async (task) => {
-    console.log("deleting task", task);
+    console.log("deleting task", task.id);
+    try {
+      const response = await fetch(
+        `http://localhost:${PORT}/tasks/${task.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        console.log("Task deleted successfully");
+        fetchTasks(); // Refresh task list or update UI accordingly
+      } else {
+        console.error("Failed to delete task");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // creates new task from input form
@@ -45,7 +64,7 @@ const ToDoList = () => {
 
   //gets all tasks from backend
   const getAllTasks = async () => {
-    console.log("getting all tasks...");
+    // console.log("getting all tasks...");
     try {
       const response = await fetch(`http://localhost:${PORT}/tasks`, {
         method: "GET",
@@ -55,7 +74,7 @@ const ToDoList = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log(data.message, data.tasks);
+        // console.log(data.message, data.tasks);
         return data.tasks;
       }
     } catch (error) {
@@ -64,7 +83,7 @@ const ToDoList = () => {
   };
   const fetchTasks = async () => {
     const tasks = await getAllTasks();
-    console.log("RESPONSE:", tasks);
+    // console.log("RESPONSE:", tasks);
     setTaskList(tasks);
   };
 

@@ -33,4 +33,24 @@ router.post("/tasks", async (req, res) => {
   }
 });
 
+// delete a task
+router.delete("/tasks/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      res.send({ status: 400, message: "Request is incomplete" });
+      return;
+    }
+   const deletedTask = Task.destroy({where: {id: id }})
+
+   if (!deletedTask) {
+    return res.status(404).json({ message: "Task not found" });
+  }
+  res.json({ message: "Task deleted successfully" });
+  return
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 module.exports = router;
