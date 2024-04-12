@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
-const sequelize = require("./database"); // Update this line
+// const sequelize = require("./models/todo");
+const sequelize = require("./database");
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 const taskRoutes = require("./routes/tasks");
 
+app.use(express.static("public"));
 app.use(bodyParser.json());
 
 // Check DB connection
@@ -33,6 +35,9 @@ sequelize
   .sync({ alter: true, logging: false })
   .then(() => {
     console.log("Database & tables created!");
+    app.get("/", (req, res) => {
+      res.sendFile(__dirname + "/public/index.html");
+    });
 
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
