@@ -3,10 +3,23 @@ const { Header, Footer, Content } = Layout;
 import "../styles/toDoList.css";
 import { PlusCircleFilled } from "@ant-design/icons";
 import { useState } from "react";
+import { useEffect } from "react";
+import ToDoItem from "./ToDoItem";
 
 const ToDoList = () => {
   const [task, setTask] = useState("");
+  const [taskList, setTaskList] = useState([]);
   const PORT = import.meta.env.VITE_PORT || 5005; // fix later
+
+  // update task
+  const updateTask = async (task) => {
+    console.log("updating task", task);
+  };
+
+  // delete task
+  const deleteTask = async (task) => {
+    console.log("deleting task", task);
+  };
 
   // creates new task from input form
   const createNewTask = async (task) => {
@@ -23,11 +36,42 @@ const ToDoList = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(data.message);
+        fetchTasks();
       }
     } catch (error) {
       console.error(error);
     }
   };
+
+  //gets all tasks from backend
+  const getAllTasks = async () => {
+    console.log("getting all tasks...");
+    try {
+      const response = await fetch(`http://localhost:${PORT}/tasks`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message, data.tasks);
+        return data.tasks;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const fetchTasks = async () => {
+    const tasks = await getAllTasks();
+    console.log("RESPONSE:", tasks);
+    setTaskList(tasks);
+  };
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
   return (
     <Layout>
       <Header className="header">Task Tackler</Header>
@@ -63,6 +107,16 @@ const ToDoList = () => {
               />
               <PlusCircleFilled onClick={() => createNewTask(task)} />
             </div>
+            {taskList
+              ? taskList.map((task) => (
+                  <ToDoItem
+                    key={task.id}
+                    title={task.title}
+                    onDelete={() => deleteTask(task)}
+                    onUpdate={() => updateTask(task)}
+                  />
+                ))
+              : ""}
           </Col>
         </Row>
         <Footer style={{ textAlign: "center" }}>

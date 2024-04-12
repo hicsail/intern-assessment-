@@ -6,6 +6,7 @@ const Task = require("../models/task");
 router.get("/tasks", async (req, res) => {
   try {
     const tasks = await Task.findAll();
+
     res.json({ status: 200, message: "success", tasks: tasks });
   } catch (error) {
     console.error(error);
