@@ -6,6 +6,9 @@ import { useState } from "react";
 
 const ToDoList = () => {
   const [task, setTask] = useState("");
+  const PORT = import.meta.env.VITE_PORT || 5005; // fix later
+
+  // creates new task from input form
   const createNewTask = (task) => {
     console.log("creating new task...", task);
     setTask("");
