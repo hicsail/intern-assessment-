@@ -36,6 +36,7 @@ const ToDoList = () => {
     }
   };
 
+  // delete a task by id
   const deleteTask = async (task) => {
     console.log("deleting task", task.id);
     try {
