@@ -1,4 +1,5 @@
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
 const sequelize = require("./database"); // Update this line
 const bodyParser = require("body-parser");
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 const taskRoutes = require("./routes/tasks");
 
 app.use(bodyParser.json());
+app.use(cors());
 
 // Check DB connection
 async function assertDatabaseConnectionOk() {

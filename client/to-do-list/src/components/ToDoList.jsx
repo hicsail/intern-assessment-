@@ -9,9 +9,24 @@ const ToDoList = () => {
   const PORT = import.meta.env.VITE_PORT || 5005; // fix later
 
   // creates new task from input form
-  const createNewTask = (task) => {
+  const createNewTask = async (task) => {
     console.log("creating new task...", task);
-    setTask("");
+    try {
+      const response = await fetch(`http://localhost:${PORT}/tasks`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ title: task }),
+      });
+      setTask("");
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <Layout>
