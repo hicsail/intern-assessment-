@@ -53,4 +53,25 @@ router.delete("/tasks/:id", async (req, res) => {
   }
 });
 
+// update a task
+router.put("/tasks/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const newTitle = req.body
+    if (!id || !newTitle) {
+      res.send({ status: 400, message: "Request is incomplete" });
+      return;
+    }
+   const updatedTask = Task.update({ title: newTitle },{where: {id: id }})
+
+   if (!updatedTask) {
+    return res.status(404).json({ message: "Task not found" });
+  }
+  res.json({ message: "Task updated successfully" });
+  return
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 module.exports = router;

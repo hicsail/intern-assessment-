@@ -12,8 +12,28 @@ const ToDoList = () => {
   const PORT = import.meta.env.VITE_PORT || 5005; // fix later
 
   // update task
-  const updateTask = async (task) => {
+  const updateTask = async (task, newTitle) => {
     console.log("updating task", task);
+    try {
+      const response = await fetch(
+        `http://localhost:${PORT}/tasks/${task.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTitle),
+        }
+      );
+      if (response.ok) {
+        console.log("Task updated successfully");
+        fetchTasks(); //refresh
+      } else {
+        console.error("Failed to delete task");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const deleteTask = async (task) => {
@@ -31,7 +51,7 @@ const ToDoList = () => {
 
       if (response.ok) {
         console.log("Task deleted successfully");
-        fetchTasks(); // Refresh task list or update UI accordingly
+        fetchTasks(); // refresh
       } else {
         console.error("Failed to delete task");
       }
@@ -132,7 +152,7 @@ const ToDoList = () => {
                     key={task.id}
                     title={task.title}
                     onDelete={() => deleteTask(task)}
-                    onUpdate={() => updateTask(task)}
+                    onUpdate={(newTitle) => updateTask(task, newTitle)}
                   />
                 ))
               : ""}
