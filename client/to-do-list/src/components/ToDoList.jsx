@@ -1,6 +1,6 @@
 import { Layout, Row, Col, Typography, Input } from "antd";
 const { Header, Footer, Content } = Layout;
-import "../styles/toDoList.css";
+// import "../styles/toDoList.css";
 import { PlusCircleFilled } from "@ant-design/icons";
 import { useState } from "react";
 import { useEffect } from "react";
