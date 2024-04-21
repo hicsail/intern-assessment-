@@ -1,9 +1,12 @@
 # To Do Management System
 
-This is a simple tool designed to help users manage their tasks efficiently. Built with Node.js and Express, it supports CRUD operations allowing users to create, read, update, and delete tasks. This document provides setup instructions, usage guidelines, and contribution information.
+This is a simple tool designed to help users manage their tasks efficiently. Built with Node.js and Express, it supports
+CRUD operations allowing users to create, read, update, and delete tasks. This document provides setup instructions,
+usage guidelines, and contribution information.
 
 You will have two hours for when you fork the repository to submit a pull request to this repository.
-Please stay within the time limit. If you go over time, please submit the project as is. We will review the project after pull request is open.
+Please stay within the time limit. If you go over time, please submit the project as is. We will review the project
+after pull request is open.
 
 ## Pre-requisites
 
@@ -18,7 +21,8 @@ To get the project up and running, follow the steps below:
 
 ### Forking the Repository
 
-Before setting up the project locally, you need to fork the repository to have your own copy of the codebase. Follow these steps to fork the repository:
+Before setting up the project locally, you need to fork the repository to have your own copy of the codebase. Follow
+these steps to fork the repository:
 
 1. Go to the original repository on GitHub.
 2. In the top-right corner of the page, click Fork.
@@ -77,4 +81,5 @@ Ensure:
 - [ ] Only the required files are committed.
 - [ ] Answer the questions in the pull request template.
 
-We require about two hours for you to complete this project. If you go over time, please submit the project as is. We will review the project and provide feedback.
+We require about two hours for you to complete this project. If you go over time, please submit the project as is. We
+will review the project and provide feedback.
