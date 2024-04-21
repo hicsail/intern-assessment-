@@ -15,13 +15,18 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    completed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
   {
     sequelize, // Pass the connection instance
     modelName: "Task", // Name your model
     timestamps: true, // Enable automatic creation of createdAt & updatedAt fields
     tableName: "Tasks", // Explicitly define the table name
-  },
+  }
 );
 
 module.exports = Task;
