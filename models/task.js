@@ -3,6 +3,13 @@ const sequelize = require("../database");
 
 class Task extends Model {}
 
+/*
+  Task status meaning
+  0 - Todo
+  1 - Pending
+  2 - Completed
+ */
+
 Task.init(
   {
     // Define attributes
@@ -14,6 +21,11 @@ Task.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    status: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
     },
   },
   {
