@@ -1,12 +1,13 @@
-require("dotenv").config();
-const express = require("express");
-const sequelize = require("./database"); // Update this line
-const bodyParser = require("body-parser");
+import dotenv from 'dotenv';
+dotenv.config();
+import express from 'express';
+import sequelize from './database.js'; 
+import bodyParser from 'body-parser';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const taskRoutes = require("./routes/tasks");
+import taskRoutes from './routes/tasksRoutes.js';
 
 app.use(bodyParser.json());
 

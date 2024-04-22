@@ -1,6 +1,7 @@
 {
   "name": "intern-assessment",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -24,6 +25,7 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "nodemon": "^3.1.0",
     "prettier": "^3.2.5"
   }
 }
