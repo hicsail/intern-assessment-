@@ -1,0 +1,70 @@
+.task-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.edit-mode {
+  margin-bottom: 10px;
+}
+
+.edit-input {
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.edit-textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 5px;
+}
+
+.save-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.edit-button {
+  background-color: #2196f3;
+}
+
+.edit-button:hover {
+  background-color: #0d8bf0;
+}
+.complete-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.complete-button:hover {
+  background-color: #45a049;
+}
+.edit-button-disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
