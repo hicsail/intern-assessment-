@@ -1,0 +1,35 @@
+<input type="text" id="taskDescInput" placeholder="Add Task Description">
+<button class="addButton" >Add Task</button>
+
+<script>
+    //Listens if the add button has been clicked, and if so, adds the task and reloads the page to reflect that change.
+    const addButton = document.querySelector('.addButton');
+    addButton.addEventListener('click', async (e) => {
+        const taskDesc = document.querySelector('#taskDescInput').value;
+        if (taskDesc === '') {
+            alert('Please enter a task description');
+            return;
+        }
+        const response = await fetch(`/tasks`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: taskDesc,
+                completed: false
+            })
+        })
+        .then (response => {
+            if (response.ok) {
+                console.log('Task added');
+                location.reload();
+            } else {
+                console.log('Error adding task');
+            }
+        })
+        .then (data => {
+            location.reload();
+        })
+    });
+</script>

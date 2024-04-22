@@ -1,0 +1,17 @@
+<table>
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% tasks.forEach(task => { %>
+            <tr>
+                <td><%= task.title %></td>
+                <td><input class="completedCheckbox" type="checkbox" data-task-id="<%= task.id %>" <%= task.completed ? 'checked' : '' %>></td>
+                <td><button class="deleteButton" data-task-id="<%= task.id %>">Delete Task</button></td>
+                <td><button class="updateTitleButton" data-task-id="<%= task.id %>">Update Task Title</button></td>
+            </tr>
+        <% }); %>
+</table>

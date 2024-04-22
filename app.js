@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const taskRoutes = require("./routes/tasks");
+const filterRoutes = require("./routes/filter");
 
 app.use(bodyParser.json());
 
@@ -27,6 +28,9 @@ assertDatabaseConnectionOk();
 
 // Define additional models and routes here
 app.use("/", taskRoutes);
+
+//To get filtered tasks
+app.use("/tasks", filterRoutes);
 
 // Synchronize models with the database
 sequelize

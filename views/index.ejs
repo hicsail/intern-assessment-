@@ -1,0 +1,91 @@
+<%# Displays the home page with all the functionalities when the root route is called.%>
+
+<h1>My To-Do List</h1>
+<h2>Add a Task</h2>
+<%- include('partials/addTask') %>
+<%- include('partials/taskList') %>
+
+<script>
+    // Listens if any checkbox has been checked, and if so, updates the task's completed status and reloads the page to reflect that change.
+    const completed = document.querySelectorAll('.completedCheckbox');
+    completed.forEach(checkbox => {
+        checkbox.addEventListener('change', async (e) => {
+            const taskId = e.target.dataset.taskId
+            const taskName = e.target.parentElement.parentElement.querySelector('td').innerText;
+            const response = await fetch(`/tasks/${taskId}`, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: taskName,
+                    completed: e.target.checked
+                })
+            })
+            .then (response => {
+                if (response.ok) {
+                    console.log('Task updated');
+                    location.reload();
+                } else {
+                    console.log('Error updating task');
+                }
+            })
+            .then (data => {
+                location.reload();
+            })
+        });
+    });
+
+    //Listens if any delete button has been clicked, and if so, deletes the task and reloads the page to reflect that change.
+    const deleteButtons = document.querySelectorAll('.deleteButton');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', async (e) => {
+            const taskId = e.target.dataset.taskId;
+            const response = await fetch(`/tasks/${taskId}`, {
+                method: 'delete'
+            })
+            .then (response => {
+                if (response.ok) {
+                    console.log('Task deleted');
+                    location.reload();
+                } else {
+                    console.log('Error deleting task');
+                }
+            })
+            .then (data => {
+                location.reload();
+            })
+        });
+    });
+
+    //Listens if any update button has been clicked, and if so, updates the task's title and reloads the page to reflect that change.
+    const updateButtons = document.querySelectorAll('.updateTitleButton');
+    updateButtons.forEach(button => {
+        button.addEventListener('click', async (e) => {
+            const taskId = e.target.dataset.taskId;
+            const taskCompletion = e.target.parentElement.parentElement.querySelector('.completedCheckbox').checked;
+            const newTaskName = prompt('Enter new task name:');
+            const response = await fetch(`/tasks/${taskId}`, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: newTaskName,
+                    completed: taskCompletion
+                })
+            })
+            .then (response => {
+                if (response.ok) {
+                    console.log('Task updated');
+                    location.reload();
+                } else {
+                    console.log('Error updating task');
+                }
+            })
+            .then (data => {
+                location.reload();
+            })
+        });
+    });
+</script>
