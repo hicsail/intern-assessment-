@@ -14,6 +14,11 @@ Task.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  completed: {        // Adding a completed flag field
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  },
 }, {
   sequelize, // Pass the connection instance
   modelName: 'Task', // Name your model
