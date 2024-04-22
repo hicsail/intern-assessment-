@@ -15,6 +15,14 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    status: { //Status flag to indicate whether a task is completed or not
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+    },
+    description: { //Description of a task
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
   },
   {
     sequelize, // Pass the connection instance
