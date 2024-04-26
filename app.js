@@ -6,7 +6,15 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const taskRoutes = require("./routes/tasks");
+// Route imports
+const getAllTasksRouter = require("./routes/getAllTasks");
+const getAllCompletedTasksRouter = require("./routes/getAllCompletedTasks");
+const getAllPendingTasksRouter = require("./routes/getAllPendingTasks");
+const getTaskRouter = require("./routes/getTask");
+const createTaskRouter = require("./routes/createTask");
+const deleteTaskRouter = require("./routes/deleteTask");
+const completeTaskRouter = require("./routes/completeTask");
+const updateTaskTitleRouter = require("./routes/updateTaskTitle");
 
 app.use(bodyParser.json());
 
@@ -26,7 +34,14 @@ async function assertDatabaseConnectionOk() {
 assertDatabaseConnectionOk();
 
 // Define additional models and routes here
-app.use("/", taskRoutes);
+app.use("/getAllTasks", getAllTasksRouter);
+app.use("/createTask", createTaskRouter);
+app.use("/deleteTask", deleteTaskRouter);
+app.use("/completeTask", completeTaskRouter);
+app.use("/getAllCompletedTasks", getAllCompletedTasksRouter);
+app.use("/getAllPendingTasks", getAllPendingTasksRouter);
+app.use("/getTask", getTaskRouter);
+app.use("/updateTaskTitle", updateTaskTitleRouter);
 
 // Synchronize models with the database
 sequelize

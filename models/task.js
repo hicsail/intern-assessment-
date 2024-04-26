@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../database");
 
+// The model shows the structure of the Task object and how it should be stored in the database.
 class Task extends Model {}
 
 Task.init(
@@ -14,6 +15,16 @@ Task.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    completed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    pending: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
     },
   },
   {
