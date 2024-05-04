@@ -7,7 +7,15 @@ const sequelize = require("../database");
 router.get("/tasks", async (req, res) => {
   try {
       const tasks = await Task.findAll();
-      res.json(tasks);
+
+      if (tasks.length === 0) {
+        // If no tasks are found, send a custom message
+        return res.json({ message: "No tasks left, good job!" });
+      }
+  
+      // Only return title for readability
+      const taskList = tasks.map(task => task.title);
+      res.json(taskList);
   } catch (error) {
     // Handle erros
     console.error(error);
@@ -22,25 +30,29 @@ router.get("/tasks/completed", async (req, res) => {
     const completedTasks = await Task.findAll({
       where: { completed: true }
     });
-    
+
+    // Only return title for readability
+    const taskList = completedTasks.map(task => task.title);
     // Send the list as the response
-    res.json(completedTasks);
+    res.json(taskList);
   } catch(error) {
     console.error(error);
     res.status(500).json({ error: "Failed to get completed tasks" });
   }
 });
 
-// Get all completed tasks
+// Get all pending tasks
 router.get("/tasks/pending", async (req, res) => {
   try {
     // Retrieve completed tasks from the DB
     const pendingTasks = await Task.findAll({
-      where: { completed: false }
+      where: { completed: false || null }
     });
-    
+
+    // Only return title for readability
+    const taskList = pendingTasks.map(task => task.title);
     // Send the list as the response
-    res.json(pendingTasks);
+    res.json(taskList);
   } catch(error) {
     console.error(error);
     res.status(500).json({ error: "Failed to get pending tasks" });
@@ -98,6 +110,7 @@ router.patch("/tasks/:id/completed", async (req, res) => {
     task.completed = true;
     await task.save();
     res.json({ message: "Task marked as completed!" });
+
   } catch(error) {
     console.error(error);
     res.status(500).json({ error : "Failed to mark task as completed" });
@@ -131,6 +144,5 @@ router.patch("/tasks/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to update task title" });
   }
 });
-
 
 module.exports = router;

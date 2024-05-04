@@ -4,7 +4,7 @@ Please answer the following questions.
 My name is Shiwei He, my friend also call me Calvin.
 
 2. How long did you work on this project?
-Around 2 hours.
+About 2 hours.
 
 3. What is the most challenging part of the project?
 
@@ -31,7 +31,7 @@ Create a Todo App todo the following requirements:
 - [x] It should be possible to read a task.
 - [x] It should be possible to mark a task as completed.
 - [x] It should be possible to update the title of task.
-- [X] It should be possible to delete a task.
+- [x] It should be possible to delete a task.
 - [x] It should be possible to list all tasks.
 - [x] It should be possible to list all completed tasks.
 - [x] It should be possible to list all pending tasks.
@@ -40,8 +40,8 @@ Once competed, you can submit a pull request to the original repository.
 
 Ensure:
 
-- [ ] The code is clean and readable.
-- [ ] The code is well-structured.
-- [ ] The code is well-commented.
-- [ ] Only the required files are committed.
-- [ ] Answer the questions in the pull request template.
+- [x] The code is clean and readable.
+- [x] The code is well-structured.
+- [x] The code is well-commented.
+- [x] Only the required files are committed.
+- [x] Answer the questions in the pull request template.
