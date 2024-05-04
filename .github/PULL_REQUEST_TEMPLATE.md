@@ -29,8 +29,8 @@ Create a Todo App todo the following requirements:
 
 - [x] It should be possible to create a task.
 - [x] It should be possible to read a task.
-- [ ] It should be possible to mark a task as completed.
-- [ ] It should be possible to update the title of task.
+- [x] It should be possible to mark a task as completed.
+- [x] It should be possible to update the title of task.
 - [X] It should be possible to delete a task.
 - [ ] It should be possible to list all tasks.
 - [ ] It should be possible to list all completed tasks.

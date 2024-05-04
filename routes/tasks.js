@@ -15,6 +15,8 @@ router.get("/tasks", async (req, res) => {
   }
 });
 
+// Get all completed tasks
+
 // Create a new task
 router.post("/tasks", async (req, res) => {
   // Destructuring: Take the title from request body as the task title
@@ -72,5 +74,32 @@ router.patch("/tasks/:id/completed", async (req, res) => {
   }
 });
 
+// Update a task's title
+router.patch("/tasks/:id", async (req, res) => {
+  const id = req.params.id;
+  const { newTitle } = req.body;
+
+  try {
+    // Find the task by ID in the database
+    const task = await Task.findByPk(id);
+
+    if (!task) {
+      return res.status(404).json({ error: "Task not found" });
+    }
+
+    // Update the task's title with the new title
+    task.title = newTitle;
+
+    // Save the changes to the database
+    await task.save();
+
+    // Send a success response
+    res.json({ message: "Task title updated successfully" });
+  } catch(error) {
+    // Handle errors
+    console.error(error);
+    res.status(500).json({ error: "Failed to update task title" });
+  }
+});
 
 module.exports = router;
