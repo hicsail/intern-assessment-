@@ -16,6 +16,36 @@ router.get("/tasks", async (req, res) => {
 });
 
 // Get all completed tasks
+router.get("/tasks/completed", async (req, res) => {
+  try {
+    // Retrieve completed tasks from the DB
+    const completedTasks = await Task.findAll({
+      where: { completed: true }
+    });
+    
+    // Send the list as the response
+    res.json(completedTasks);
+  } catch(error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to get completed tasks" });
+  }
+});
+
+// Get all completed tasks
+router.get("/tasks/pending", async (req, res) => {
+  try {
+    // Retrieve completed tasks from the DB
+    const pendingTasks = await Task.findAll({
+      where: { completed: false }
+    });
+    
+    // Send the list as the response
+    res.json(pendingTasks);
+  } catch(error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to get pending tasks" });
+  }
+});
 
 // Create a new task
 router.post("/tasks", async (req, res) => {
@@ -101,5 +131,6 @@ router.patch("/tasks/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to update task title" });
   }
 });
+
 
 module.exports = router;
