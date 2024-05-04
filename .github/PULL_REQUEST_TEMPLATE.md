@@ -1,10 +1,10 @@
 Please answer the following questions.
 
 1. What is your name?
-
+My name is Shiwei He, my friend also call me Calvin.
 
 2. How long did you work on this project?
-
+Around 2 hours.
 
 3. What is the most challenging part of the project?
 
@@ -13,7 +13,9 @@ Please answer the following questions.
 
 
 5. What would you like to add or improve in this project?
-
+- Add due dates to task
+- Add task description to tasks
+- Mark todos in the completed list to uncompleted
 
 6. What is your feedback on this project?
 
@@ -25,11 +27,11 @@ Please answer the following questions.
 
 Create a Todo App todo the following requirements:
 
-- [ ] It should be possible to create a task.
-- [ ] It should be possible to read a task.
+- [x] It should be possible to create a task.
+- [x] It should be possible to read a task.
 - [ ] It should be possible to mark a task as completed.
 - [ ] It should be possible to update the title of task.
-- [ ] It should be possible to delete a task.
+- [X] It should be possible to delete a task.
 - [ ] It should be possible to list all tasks.
 - [ ] It should be possible to list all completed tasks.
 - [ ] It should be possible to list all pending tasks.
