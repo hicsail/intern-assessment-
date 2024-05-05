@@ -14,7 +14,11 @@ Task.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
+    }, // Define status that shows if task is pending or completed
+    status: {
+      type: DataTypes.STRING,
+      defaultValue: "Pending",
+    }
   },
   {
     sequelize, // Pass the connection instance

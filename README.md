@@ -58,23 +58,23 @@ curl -X POST -H "Content-Type: application/json" -d '{"title":"My Task"}' http:/
 
 Create a Todo App todo the following requirements:
 
-- [ ] It should be possible to create a task.
-- [ ] It should be possible to read a task.
-- [ ] It should be possible to mark a task as completed.
-- [ ] It should be possible to update the title of task.
-- [ ] It should be possible to delete a task.
-- [ ] It should be possible to list all tasks.
-- [ ] It should be possible to list all completed tasks.
-- [ ] It should be possible to list all pending tasks.
+- [x] It should be possible to create a task.
+- [x] It should be possible to read a task.
+- [x] It should be possible to mark a task as completed.
+- [x] It should be possible to update the title of task.
+- [x] It should be possible to delete a task.
+- [x] It should be possible to list all tasks.
+- [x] It should be possible to list all completed tasks.
+- [x] It should be possible to list all pending tasks.
 
-Once competed, you can submit a pull request to the original repository.
+Once completed, you can submit a pull request to the original repository.
 
 Ensure:
 
-- [ ] The code is clean and readable.
-- [ ] The code is well-structured.
-- [ ] The code is well-commented.
-- [ ] Only the required files are committed.
-- [ ] Answer the questions in the pull request template.
+- [x] The code is clean and readable.
+- [x] The code is well-structured.
+- [x] The code is well-commented.
+- [x] Only the required files are committed.
+- [x] Answer the questions in the pull request template.
 
 We require about two hours for you to complete this project. If you go over time, please submit the project as is. We will review the project and provide feedback.
