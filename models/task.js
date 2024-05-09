@@ -15,6 +15,16 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    completed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false, // Default value for new tasks
+    },
+    pending: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true, // Default value for new tasks
+    },
   },
   {
     sequelize, // Pass the connection instance
