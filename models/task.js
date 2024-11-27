@@ -1,3 +1,5 @@
+/* Author: Jaideep Singh, 11/26/2024 */
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../database");
 
