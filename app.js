@@ -53,7 +53,6 @@ assertDatabaseConnectionOk()
   });
 
 // Set up the task routes
-app.use("/", taskRoutes);
 
 // Global error handler for unexpected errors
 app.use((err, req, res, next) => {
