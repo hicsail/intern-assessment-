@@ -14,8 +14,22 @@ router.get("/tasks", async (req, res) => {
 
 
 // Create a new task
+// Create a new task
 router.post("/tasks", async (req, res) => {
-  res.json({});
+  try {
+    const { title } = req.body; // Extract title from the request body
+
+    if (!title) {
+      return res.status(400).json({ error: "Title is required" });
+    }
+
+    // Create a new task in the database
+    const newTask = await Task.create({ title });
+
+    // Return the created task
+    res.status(201).json(newTask);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
-module.exports = router;
