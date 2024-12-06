@@ -26,7 +26,7 @@ async function assertDatabaseConnectionOk() {
 assertDatabaseConnectionOk();
 
 // Define additional models and routes here
-app.use("/", taskRoutes);
+app.use("/tasks", taskRoutes); // Updated to /tasks instead of just "/"
 
 // Synchronize models with the database
 sequelize
