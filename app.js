@@ -25,27 +25,26 @@ async function assertDatabaseConnectionOk() {
     await sequelize.authenticate(); // Attempt to authenticate with the database
     console.log("Database connection OK!"); // Success message if connection works
   } catch (error) {
-    console.error("Unable to connect to the database:", error.message);
-    process.exit(1); // Exit the application if the connection fails
+    console.log("Unable to connect to the database:");
+    console.log(error.message);
+    process.exit(1);
   }
 }
 
-// Call the function to check database connection
-assertDatabaseConnectionOk()
+assertDatabaseConnectionOk();
+
+// Define additional models and routes here
+app.use("/tasks", taskRoutes); // Updated to /tasks instead of just "/"
+
+// Synchronize models with the database
+sequelize
+  .sync({ alter: true, logging: false })
   .then(() => {
-    // Synchronise models with the database and create tables if they don't exist
-    sequelize
-      .sync({ alter: true, logging: false })
-      .then(() => {
-        console.log("Database & tables created!"); // Confirmation message
-        // Start the server once the database is set up
-        app.listen(PORT, () => {
-          console.log(`Server running on http://localhost:${PORT}`); // Server start message
-        });
-      })
-      .catch((error) => {
-        console.error("Failed to synchronise database:", error);
-      });
+    console.log("Database & tables created!");
+
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
   })
   .catch((error) => {
     console.error("Database connection failed, exiting...");
