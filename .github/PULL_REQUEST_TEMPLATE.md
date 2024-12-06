@@ -11,7 +11,7 @@ Understanding the different files that needed to be updated. Upon starting, I sa
 
 4. What did you learn from this project?
 
-A lot. 1. Making small scale side projects would make my life so much easier. 2. APIs are really interesting, not just from a web dev POV but from the perspective of a user, I wouldn't have found the incredulous amount of things that can be possible just with APIs and making their usage more efficient across various web development related areas. 3. Merge conflicts in version control are painful to live with. 4. Running tests are even more painful. 5. Debugging tests are the epitome of pain and fun. At the end of the day, I'm hoping to get better at these skills.
+A lot. 1. Making small scale side projects would make my life so much easier. 2. APIs are really interesting, not just from a web dev POV but from the perspective of a user, I wouldn't have found the incredulous amount of things that can be possible just with APIs and making their usage more efficient across various web development related areas. 3. Merge conflicts in version control are painful to live with. 4. Running tests are even more painful. 5. Debugging tests are the epitome of pain and fun. At the end of the day, I'm hoping to get better at these skills. 6. I didn't grasp a lot of concepts fully which are mostly related to packages so my plan is to get a thorough understanding of managing them for easier integration within larger projects.
 
 5. What would you like to add or improve in this project?
 Automate user's To-Do list and add suggestions. Perhaps even add AI but not a chatbot. For simiplicity, I would like to make it a little bit more distraction free so I'm yet to figure out how I can do that without having notifications.
