@@ -7,7 +7,7 @@ Nafisa Nawrin Labonno
 Approximately an hour and a half to two hours
 
 3. What is the most challenging part of the project?
-Understanding the different files that needed to be updated. Upon starting, I saw preexisting files which needed to be explained further to me. Because this is my first time using any database (previously worked in a team who knew MongoDB to some degree) and SQL, this was equally fun and challenging! I just got done with object-oriented in Java and C++ so having to review them/work under timed constraints in a real-life project as a starter was quite interesting! I hope the requirements are met justly. Initially, I also faced issues running the port correctly. It threw me an error constantly so debugging that was slightly disturbing.
+Understanding the different files that needed to be updated. Upon starting, I saw preexisting files which needed to be explained further to me. Because this is my first time using any database (previously worked in a team who knew MongoDB to some degree) and SQL, this was equally fun and challenging! I just got done with object-oriented in Java and C++ so having to review them/work under timed constraints in a real-life project as a starter was quite interesting! I hope the requirements are met justly. Initially, I also faced issues running the port correctly. It threw me an error constantly so debugging that was slightly disturbing. I'm still unable to test the app properly.
 
 4. What did you learn from this project?
 
