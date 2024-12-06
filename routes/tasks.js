@@ -1,15 +1,27 @@
-const express = require("express");
-const router = express.Router();
-const Task = require("../models/task");
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../database");
 
-// Get all tasks
-router.get("/tasks", async (req, res) => {
-  res.json([]);
-});
+class Task extends Model {}
 
-// Create a new task
-router.post("/tasks", async (req, res) => {
-  res.json({});
-});
+Task.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    
+  },
+  {
+    sequelize,
+    modelName: "Task",
+    timestamps: true,
+    tableName: "Tasks",
+  }
+);
 
-module.exports = router;
+module.exports = Task;
