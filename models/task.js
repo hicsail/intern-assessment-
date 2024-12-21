@@ -15,6 +15,12 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // Completed flag is false by default because user cant create already completed task
+    completed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    }
   },
   {
     sequelize, // Pass the connection instance
