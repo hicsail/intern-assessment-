@@ -42,7 +42,7 @@ router.get("/tasks/pending", async (req, res) => {
   }
 });
 
-// Get a specific task
+// Get a specific task by ID
 router.get("/tasks/:id", async (req, res) => {
   try {
     const task = await Task.findByPk(req.params.id);
@@ -73,7 +73,7 @@ router.post("/tasks", async (req, res) => {
   }
 });
 
-// Delete a task
+// Delete a task by ID
 router.delete("/tasks/:id", async (req, res) => {
   try {
     const task = await Task.findByPk(req.params.id);
@@ -88,7 +88,7 @@ router.delete("/tasks/:id", async (req, res) => {
   }
 });
 
-// Mark task as completed
+// Mark task as completed by ID
 router.patch("/tasks/:id/complete", async (req, res) => {
   try {
     const task = await Task.findByPk(req.params.id);
@@ -105,7 +105,7 @@ router.patch("/tasks/:id/complete", async (req, res) => {
   }
 });
 
-// Update task title
+// Update task title 
 router.patch("/tasks/:id/title", async (req, res) => {
   try {
     const { title } = req.body;
