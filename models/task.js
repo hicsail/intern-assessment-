@@ -15,6 +15,11 @@ Task.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    completed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false,
+    }
   },
   {
     sequelize, // Pass the connection instance
